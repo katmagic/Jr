@@ -1,0 +1,14 @@
+Jr.
+---
+
+Jr. is a Ruby library for communicating with JSON RPC servers. Unfortunately,
+Jr. currently only supports HTTP JSON RPC servers.
+
+Example Usage
+-------------
+
+	# Connect to the JSON RPC at https://user:password@127.0.0.1:1234/
+	jr = Jr::Jr.new('127.0.0.1', 1234, 'user', 'password', use_ssl=true)
+
+	jr.request(:function, 'arg1', 'arg2') # 'response'
+	jr.function('arg1', 'arg2')           # 'response'
