@@ -54,7 +54,7 @@ module Jr
 
 	# ServerError is raised when the server requests (via the error property) that
 	# an exception be raised in client code.
-	class ServerError < Exception
+	class ServerError < Error
 		# @code is a Fixnum specifying the type of the error.
 		attr_reader :code
 		# @message is a String providing a short description of the error.
