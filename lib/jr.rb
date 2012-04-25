@@ -102,7 +102,7 @@ module Jr
 				# is present, we don't require it because not all servers implement it.
 				raise ProtocolMismatch.new(self, r['jsonrpc'])
 			elsif r['id'] != reqid
-				raise ProtocolMismatch.new(IDMismatch, self)
+				raise IDMismatch.new(self)
 			elsif r['error']
 				raise ServerError.new(self, r['error']['code'], r['error']['message'],
 				                      r['error']['data'])
