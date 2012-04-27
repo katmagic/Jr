@@ -96,7 +96,7 @@ module Jr
 				id: reqid
 			)
 
-			r = JSON.parse(http_request(data))
+			r = parse_json_data(http_request(data))
 			if r.has_key?('jsonrpc') and (r['jsonrpc'] != JSON_RPC_VERSION)
 				# Even though the JSON RPC specification requires that a 'jsonrpc' key
 				# is present, we don't require it because not all servers implement it.
@@ -142,6 +142,11 @@ module Jr
 		def get_request_id()
 			@random_instance ||= Random.new
 			Base64.urlsafe_encode64(@random_instance.bytes(12))
+		end
+
+		# Parse JSON data.
+		def parse_json_data(data)
+			JSON.parse(data)
 		end
 	end
 end
